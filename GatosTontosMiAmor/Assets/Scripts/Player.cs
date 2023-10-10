@@ -5,8 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int Health;
-    public int Coins;
-    public int Gems;
 
 
     // Start is called before the first frame update
@@ -27,7 +25,7 @@ public class Player : MonoBehaviour
     }
     public void AddCoins(int newCoins)
     {
-        Coins += newCoins;
+        
     }
 
     public void AddItemToInventory()
