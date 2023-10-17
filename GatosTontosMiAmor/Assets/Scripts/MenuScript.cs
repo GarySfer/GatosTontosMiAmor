@@ -8,6 +8,7 @@ public class MenuScript : MonoBehaviour {
         SceneManager.LoadScene("SampleScene");
    }
     public void QuitGame() {
+        Debug.Log("Quit");
         Application.Quit();
    }
 }
