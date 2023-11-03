@@ -13,6 +13,7 @@ public class Inventory
     private int coins = 0;
 
     // TODO make the player have 2 hands with one slot each for a sword or a shield
+    // if the player has an item already in the slot swap the item and return the replaced item
 
     public event Action<int> OnMoneyChange = delegate {  }; 
     
