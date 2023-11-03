@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         _rb.velocity = moveVelocity;
 
         // Handle jumping.
-        if (_isGrounded && Input.GetButtonDown("Space"))
+        if (_isGrounded && Input.GetButtonDown("Jump"))
         {
             _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
         }

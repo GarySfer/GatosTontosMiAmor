@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int Health;
+    private Inventory inventory;
+
+    private void Awake()
+    {
+        inventory = new Inventory();
+    }
 
 
     // Start is called before the first frame update
