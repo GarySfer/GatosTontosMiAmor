@@ -35,10 +35,7 @@ public class Player : MonoBehaviour
         
     }
 
-    public void AddItemToInventory()
-    {
-        
-    }
+
 
     public void RemoveItemFromInventory()
     {
