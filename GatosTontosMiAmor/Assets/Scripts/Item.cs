@@ -11,7 +11,7 @@ public class Item
         SmallShield,
         BigShield,
         HealthPotion,
-        Coin,
+        Chip,
     }
 
     public ItemType itemType;
