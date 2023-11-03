@@ -10,6 +10,8 @@ public class Item
         BigSword,
         SmallShield,
         BigShield,
+        HealthPotion,
+        Coin,
     }
 
     public ItemType itemType;
