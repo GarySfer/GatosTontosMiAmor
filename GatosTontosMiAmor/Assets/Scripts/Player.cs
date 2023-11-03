@@ -6,18 +6,23 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int Health;
-    private Inventory inventory;
+    public Inventory inventory { get; private set; }
     
 
     private void Awake()
     {
-        // gameManager.Player = this;
+        GameManager.Instance.player = this;
         inventory = new Inventory();
     }
 
     public void AddHealth(int newHealth)
     {
         Health += newHealth;
+    }
+    
+    public void RemoveHealth(int newHealth)
+    {
+        Health -= newHealth;
     }
     
 }

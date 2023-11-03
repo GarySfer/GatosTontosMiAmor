@@ -12,6 +12,8 @@ public class Inventory
     private int maxHealthPotions = 4;
     private int coins = 0;
 
+    public event Action<int> OnMoneyChange = delegate {  }; 
+    
     public Inventory()
     {
         itemList = new List<Item>();
@@ -64,6 +66,7 @@ public class Inventory
     public void AddCoins(int newCoins)
     {
         coins += newCoins;
+        OnMoneyChange(coins);
     }
     
     public bool RemoveCoins(int newCoins)
@@ -74,6 +77,7 @@ public class Inventory
             return false;
         }
         coins -= newCoins;
+        OnMoneyChange(coins);
         return true;
 
     }
