@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class HeroKnight : MonoBehaviour {
 
@@ -25,6 +26,9 @@ public class HeroKnight : MonoBehaviour {
     private float               m_delayToIdle = 0.0f;
     private float               m_rollDuration = 8.0f / 14.0f;
     private float               m_rollCurrentTime;
+    public Sprite[]             healthImages;
+    public Image                healthUI;
+    private static readonly int Dead = Animator.StringToHash("death");
 
 
     // Use this for initialization
@@ -37,6 +41,7 @@ public class HeroKnight : MonoBehaviour {
         m_wallSensorR2 = transform.Find("WallSensor_R2").GetComponent<Sensor_HeroKnight>();
         m_wallSensorL1 = transform.Find("WallSensor_L1").GetComponent<Sensor_HeroKnight>();
         m_wallSensorL2 = transform.Find("WallSensor_L2").GetComponent<Sensor_HeroKnight>();
+        Playerdata.Health = Playerdata.MaxHealth;
     }
 
     // Update is called once per frame
@@ -192,4 +197,15 @@ public class HeroKnight : MonoBehaviour {
             dust.transform.localScale = new Vector3(m_facingDirection, 1, 1);
         }
     }
+    
+    public void Demage(float demage)
+    {
+        Playerdata.Health -= demage;
+        if (Playerdata.Health < 0) Die();
+    }
+    //public void Die()
+    //{
+        //m_animator.SetTrigger(Dead);
+        //Destroy(gameObject);
+    //}
 }
