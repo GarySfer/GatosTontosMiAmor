@@ -12,6 +12,8 @@ public class Inventory
     private int maxHealthPotions = 4;
     private int coins = 0;
 
+    // TODO make the player have 2 hands with one slot each for a sword or a shield
+
     public event Action<int> OnMoneyChange = delegate {  }; 
     
     public Inventory()
