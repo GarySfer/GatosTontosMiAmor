@@ -20,6 +20,10 @@ public class Inventory
     public Inventory()
     {
         itemList = new List<Item>();
+		// change the inventory system to have 2 lists with 2 and 5 slots
+		// the first list will contain a weapon item, the second list will contain items with abilities
+		// create an Item class and then make weapon and AbilityItem that extend Item class
+		// on equip the current item is dropped on the ground and the new item gets into that slot
 
 
         // starter items example
