@@ -145,6 +145,7 @@ public class HeroKnight : MonoBehaviour {
         else if (Input.GetKeyDown("left shift") && !m_rolling && !m_isWallSliding)
         {
             m_rolling = true;
+            m_rollCurrentTime = 0.0f;
             m_animator.SetTrigger("Roll");
             m_body2d.velocity = new Vector2(m_facingDirection * m_rollForce, m_body2d.velocity.y);
         }
@@ -198,11 +199,11 @@ public class HeroKnight : MonoBehaviour {
         }
     }
     
-    public void Demage(float demage)
-    {
-        Playerdata.Health -= demage;
-        if (Playerdata.Health < 0) Die();
-    }
+    //public void Demage(float demage)
+    //{
+        //Playerdata.Health -= demage;
+        //if (Playerdata.Health < 0) Die();
+    //}
     //public void Die()
     //{
         //m_animator.SetTrigger(Dead);
