@@ -239,9 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598192959cf7c4a4587c5a53289231fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 0
   moneyBankAccount: {fileID: 1465926428}
-  startingMoney: 12
 --- !u!1 &195475537
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +412,7 @@ GameObject:
   - component: {fileID: 854684149}
   - component: {fileID: 854684148}
   m_Layer: 5
-  m_Name: BankAccountValue
+  m_Name: BankAccountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

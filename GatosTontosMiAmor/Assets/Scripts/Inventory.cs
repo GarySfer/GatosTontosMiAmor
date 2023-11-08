@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Inventory
+public class Inventory : MonoBehaviour
 {
     private List<Item> itemList;
 
@@ -12,8 +12,15 @@ public class Inventory
     private int maxHealthPotions = 4;
     private int coins = 0;
 
+
+    public int startingCoins {get; private set;} = 4;
     public event Action<int> OnMoneyChange = delegate {  }; 
     
+
+    void Start() {
+        AddCoins(startingCoins);
+    }
+
     public Inventory()
     {
         itemList = new List<Item>();
