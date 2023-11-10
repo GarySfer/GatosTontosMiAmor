@@ -1,43 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int Health;
+    public Inventory inventory { get; private set; }
+    
+    // stats
+    private int _moveSpeed;
+    private int _attackSpeed;
+    private int _attackDamage;
+    private int _health;
+    private int _maxHealth;
+    
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GameManager.Instance.player = this;
+        inventory = new Inventory();
     }
 
     public void AddHealth(int newHealth)
     {
-        Health += newHealth;
-    }
-    public void AddCoins(int newCoins)
-    {
-        
-    }
-
-    public void AddItemToInventory()
-    {
-        
-    }
-
-    public void RemoveItemFromInventory()
-    {
-        
+        _health += newHealth;
     }
     
-    
+    public void RemoveHealth(int newHealth)
+    {
+        _health -= newHealth;
+    }
     
 }
