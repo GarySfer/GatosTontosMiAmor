@@ -6,13 +6,17 @@ public class Item
 {
     public enum ItemType
     {
-        SmallSword,
-        BigSword,
-        SmallShield,
-        BigShield,
+        Sword,
+        Shield,
+        AbilityItem,
+        HealthPotion,
     }
-
     public ItemType itemType;
-    public int amount;
 
+    private string _name;
+
+    public Item(string name)
+    {
+        this._name = name;
+    }
 }
