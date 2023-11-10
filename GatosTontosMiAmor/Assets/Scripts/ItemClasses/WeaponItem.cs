@@ -14,7 +14,7 @@ namespace DefaultNamespace.ItemClasses
             Shield,
         }
 
-        protected WeaponItem(string name, string description, int value, int damage, int attackSpeed, int comboCount, WeaponType weaponType) : base(name, description, value)
+        public WeaponItem(string name, string description, int value, int damage, int attackSpeed, int comboCount, WeaponType weaponType) : base(name, description, value)
         {
             _damage = damage;
             _attackSpeed = attackSpeed;

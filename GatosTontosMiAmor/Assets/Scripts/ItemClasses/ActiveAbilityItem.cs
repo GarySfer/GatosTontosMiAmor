@@ -12,5 +12,7 @@ namespace DefaultNamespace.ItemClasses
             _cooldown = cooldown;
             abilityItemType = AbilityItemType.ActiveAbilityItem;
         }
+
+        public abstract void activateItem();
     }
 }

@@ -36,7 +36,7 @@ public class Inventory
         }
         
         var abilityItem = item as AbilityItem;
-        if (abilityItem != null && abilityItem.itemType == Item.ItemType.WeaponItem)
+        if (abilityItem != null && abilityItem.itemType == Item.ItemType.AbilityItem)
         {
             var activeAbilityItem = item as ActiveAbilityItem;
             if (activeAbilityItem.abilityItemType == AbilityItem.AbilityItemType.ActiveAbilityItem)
