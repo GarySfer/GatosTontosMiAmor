@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Inventory inventory { get; private set; }
+   // public Inventory inventory { get; private set; }
     
     // stats
     private int _moveSpeed;
@@ -15,11 +15,11 @@ public class Player : MonoBehaviour
     private int _maxHealth;
     
 
-    private void Awake()
-    {
-        GameManager.Instance.player = this;
-        inventory = new Inventory();
-    }
+   // private void Awake()
+   // {
+       // GameManager.Instance.player = this;
+        //inventory = new Inventory();
+   // }
 
     public void AddHealth(int newHealth)
     {
