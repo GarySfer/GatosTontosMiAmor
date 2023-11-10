@@ -1,6 +1,6 @@
 namespace DefaultNamespace.ItemClasses
 {
-    public class ActiveAbilityItem : Item
+    public abstract class ActiveAbilityItem : Item
     {
         private int _cooldown;
 

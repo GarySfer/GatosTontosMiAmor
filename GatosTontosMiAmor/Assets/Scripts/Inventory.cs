@@ -12,23 +12,28 @@ public class Inventory
     private int maxHealthPotions = 4;
     private int coins = 0;
     
-    private List<WeaponItem> _equippedWeaponItems = new List<WeaponItem>(2);
+    private List<WeaponItem> _equippedWeaponItems = new(2);
     private HyperAblilityItem _hyperAblilityItem;
-    private List<ActiveAbilityItem> _equippedActiveAbilityItems = new List<ActiveAbilityItem>(2);
-    private List<PassiveAbilityItem> _equippedPassiveAbilityItems = new List<PassiveAbilityItem>(2);
+    private List<ActiveAbilityItem> _equippedActiveAbilityItems = new(2);
+    private List<PassiveAbilityItem> _equippedPassiveAbilityItems = new(2);
 
     public event Action<int> OnMoneyChange = delegate { };
 
     public Inventory()
     {
 
-
+        Debug.Log(_equippedWeaponItems);
         Debug.Log("Inventory");
     }
 
-    public void AddItem(Item item)
+    public void AddItem(object item)
     {
-      
+        if (item.Equals(typeof(WeaponItem)))
+        {
+            
+        }
+        
+        return;
     }
 
     public bool RemoveItem(Item item)

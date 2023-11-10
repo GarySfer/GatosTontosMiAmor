@@ -1,6 +1,6 @@
 namespace DefaultNamespace.ItemClasses
 {
-    public class Item
+    public abstract class Item
     {
         
         private string _name;

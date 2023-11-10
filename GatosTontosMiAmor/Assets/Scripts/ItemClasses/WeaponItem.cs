@@ -1,6 +1,6 @@
 namespace DefaultNamespace.ItemClasses
 {
-    public class WeaponItem : Item
+    public abstract class WeaponItem : Item
     {
         private int _damage;
         private int _attackSpeed;
