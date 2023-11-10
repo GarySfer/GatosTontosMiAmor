@@ -6,6 +6,11 @@ namespace DefaultNamespace.ItemClasses
         private string _name;
         private string _description;
         private int _value;
+        
+        // private int _moveSpeed;
+        // private int _attackSpeed;
+        // private int _attackDamage;
+        // private int _health;
 
         public Item(string name, string description, int value)
         {

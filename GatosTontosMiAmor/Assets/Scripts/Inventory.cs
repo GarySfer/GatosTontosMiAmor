@@ -11,7 +11,8 @@ public class Inventory
     // TODO add max health potions to the upgrade shop and then update how many health potions the player can have
     private int maxHealthPotions = 4;
     private int coins = 0;
-    
+    public int startingCoins = 0;
+
     private List<WeaponItem> _equippedWeaponItems = new(2);
     private HyperAblilityItem _hyperAblilityItem;
     private List<ActiveAbilityItem> _equippedActiveAbilityItems = new(2);
@@ -21,19 +22,12 @@ public class Inventory
 
     public Inventory()
     {
-
         Debug.Log(_equippedWeaponItems);
         Debug.Log("Inventory");
     }
 
-    public void AddItem(object item)
+    public void AddItem(Item item)
     {
-        if (item.Equals(typeof(WeaponItem)))
-        {
-            
-        }
-        
-        return;
     }
 
     public bool RemoveItem(Item item)
@@ -59,5 +53,4 @@ public class Inventory
         OnMoneyChange(coins);
         return true;
     }
-
 }
