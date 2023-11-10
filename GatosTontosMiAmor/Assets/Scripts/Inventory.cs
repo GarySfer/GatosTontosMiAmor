@@ -11,7 +11,7 @@ public class Inventory
     // TODO add max health potions to the upgrade shop and then update how many health potions the player can have
     private int maxHealthPotions = 4;
     private int coins = 0;
-    public int startingCoins = 0;
+    private int startingCoins = 0;
 
     private List<WeaponItem> _equippedWeaponItems = new(2);
     private HyperAblilityItem _hyperAblilityItem;
@@ -53,4 +53,7 @@ public class Inventory
         OnMoneyChange(coins);
         return true;
     }
+    public int GetCoins()  {
+        return startingCoins;
+        }
 }

@@ -17,7 +17,7 @@ public class Money : MonoBehaviour
     public TMP_Text moneyBankAccount;
     
     void Start() {
-        refreshMoney(inventoryGet.startingCoins);
+        refreshMoney(inventoryGet.GetCoins());
     }
     
     void Update() {
