@@ -28,14 +28,15 @@ public class Inventory
 
     public void AddItem(Item item)
     {
+        // dont look at this, this was made with too much background noise in class
         var weaponItem = item as WeaponItem;
-        if (weaponItem.itemType == Item.ItemType.WeaponItem)
+        if (weaponItem != null && weaponItem.itemType == Item.ItemType.WeaponItem)
         {
             // add to empty weapon slot or try to replace a weapon in the slot
         }
         
         var abilityItem = item as AbilityItem;
-        if (abilityItem.itemType == Item.ItemType.WeaponItem)
+        if (abilityItem != null && abilityItem.itemType == Item.ItemType.WeaponItem)
         {
             var activeAbilityItem = item as ActiveAbilityItem;
             if (activeAbilityItem.abilityItemType == AbilityItem.AbilityItemType.ActiveAbilityItem)
