@@ -12,6 +12,12 @@ namespace DefaultNamespace.ItemClasses
         // private int _attackDamage;
         // private int _health;
 
+        public enum ItemType
+        {
+            AbilityItem,
+            WeaponItem,
+        }
+        
         public Item(string name, string description, int value)
         {
             _name = name;

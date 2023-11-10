@@ -5,7 +5,8 @@ namespace DefaultNamespace.ItemClasses
         private int _damage;
         private int _attackSpeed;
         private int _comboCount;
-        private WeaponType _weaponType;        
+        public ItemType itemType;
+        private WeaponType _weaponType;
         public enum WeaponType
         {
             Melee,
@@ -13,11 +14,13 @@ namespace DefaultNamespace.ItemClasses
             Shield,
         }
 
-        public WeaponItem(string name, string description, int value, int damage, int attackSpeed, int comboCount) : base(name, description, value)
+        protected WeaponItem(string name, string description, int value, int damage, int attackSpeed, int comboCount, WeaponType weaponType) : base(name, description, value)
         {
             _damage = damage;
             _attackSpeed = attackSpeed;
             _comboCount = comboCount;
+            itemType = ItemType.WeaponItem;
+            _weaponType = weaponType;
         }
     }
 }

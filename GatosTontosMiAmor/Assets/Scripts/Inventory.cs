@@ -28,7 +28,44 @@ public class Inventory
 
     public void AddItem(Item item)
     {
+        var weaponItem = item as WeaponItem;
+        if (weaponItem.itemType == Item.ItemType.WeaponItem)
+        {
+            // add to empty weapon slot or try to replace a weapon in the slot
+        }
+        
+        var abilityItem = item as AbilityItem;
+        if (abilityItem.itemType == Item.ItemType.WeaponItem)
+        {
+            var activeAbilityItem = item as ActiveAbilityItem;
+            if (activeAbilityItem.abilityItemType == AbilityItem.AbilityItemType.ActiveAbilityItem)
+            {
+                // add to empty active ability slot or try to replace an active ability in the slot
+            }
+            
+            var passiveAbilityItem = item as PassiveAbilityItem;
+            if (passiveAbilityItem.abilityItemType == AbilityItem.AbilityItemType.PassiveAbilityItem)
+            {
+                // add to empty passive ability slot or try to replace a passive ability in the slot
+            }
+            
+            var hyperAbilityItem = item as HyperAblilityItem;
+            if (hyperAbilityItem.abilityItemType == AbilityItem.AbilityItemType.HyperAbilityItem)
+            {
+                // add to empty hyper ability slot or try to replace a hyper ability in the slot
+                if (_hyperAblilityItem.Equals(null))
+                {
+                    _hyperAblilityItem = hyperAbilityItem;
+                }
+                else
+                {
+                    // replace hyper ability
+                }
+            }
+        }
     }
+
+
 
     public bool RemoveItem(Item item)
     {
@@ -55,5 +92,5 @@ public class Inventory
     }
     public int GetCoins()  {
         return startingCoins;
-        }
+    }
 }
