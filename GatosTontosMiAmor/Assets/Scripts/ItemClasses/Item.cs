@@ -2,7 +2,7 @@ namespace DefaultNamespace.ItemClasses
 {
     public abstract class Item
     {
-        
+        // change all private to protected
         private string _name;
         private string _description;
         private int _value;
