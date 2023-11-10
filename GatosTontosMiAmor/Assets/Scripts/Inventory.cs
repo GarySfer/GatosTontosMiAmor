@@ -26,7 +26,7 @@ public class Inventory
         Debug.Log("Inventory");
     }
 
-    public void AddItem(Item item)
+    public void AddItem(Item item, int slot)
     {
         // dont look at this, this was made with too much background noise in class
         var weaponItem = item as WeaponItem;
