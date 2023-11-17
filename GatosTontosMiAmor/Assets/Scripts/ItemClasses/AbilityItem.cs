@@ -6,9 +6,9 @@ namespace DefaultNamespace.ItemClasses
         private int _attackSpeed;
         private int _attackDamage;
         private int _health;
-        public ItemType itemType;
+        public ItemType2 ItemType2;
         
-        public enum AbilityItemType
+        public enum AbilityItemType2
         {
             PassiveAbilityItem,
             ActiveAbilityItem,
@@ -21,7 +21,7 @@ namespace DefaultNamespace.ItemClasses
             _attackSpeed = attackSpeed;
             _attackDamage = attackDamage;
             _health = health;
-            itemType = ItemType.AbilityItem;
+            ItemType2 = ItemType2.AbilityItem;
         }
     }
 }

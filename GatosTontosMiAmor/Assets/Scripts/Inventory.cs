@@ -20,6 +20,7 @@ public class Inventory
 
     public event Action<int> OnMoneyChange = delegate { };
 
+
     public Inventory()
     {
         Debug.Log(_equippedWeaponItems);
@@ -30,33 +31,55 @@ public class Inventory
     {
         // dont look at this, this was made with too much background noise in class
         var weaponItem = item as WeaponItem;
-        if (weaponItem != null && weaponItem.itemType == Item.ItemType.WeaponItem)
+        if (weaponItem != null && weaponItem.ItemType2 == Item.ItemType2.WeaponItem)
         {
-            // add to empty weapon slot or try to replace a weapon in the slot
+            if (_equippedWeaponItems[slot] == null)
+            {
+                _equippedWeaponItems[slot] = weaponItem;
+                return;
+            }
+
+            DropItem(weaponItem);
+            _equippedWeaponItems[slot] = weaponItem;
         }
-        
+
         var abilityItem = item as AbilityItem;
-        if (abilityItem != null && abilityItem.itemType == Item.ItemType.AbilityItem)
+        if (abilityItem != null && abilityItem.ItemType2 == Item.ItemType2.AbilityItem)
         {
             var activeAbilityItem = item as ActiveAbilityItem;
-            if (activeAbilityItem.abilityItemType == AbilityItem.AbilityItemType.ActiveAbilityItem)
+            if (activeAbilityItem.abilityItemType2 == AbilityItem.AbilityItemType2.ActiveAbilityItem)
             {
-                // add to empty active ability slot or try to replace an active ability in the slot
+                if (_equippedActiveAbilityItems[slot] == null)
+                {
+                    _equippedActiveAbilityItems[slot] = activeAbilityItem;
+                    return;
+                }
+
+                DropItem(activeAbilityItem);
+                _equippedActiveAbilityItems[slot] = activeAbilityItem;
             }
-            
+
             var passiveAbilityItem = item as PassiveAbilityItem;
-            if (passiveAbilityItem.abilityItemType == AbilityItem.AbilityItemType.PassiveAbilityItem)
+            if (passiveAbilityItem.AbilityItemType2 == AbilityItem.AbilityItemType2.PassiveAbilityItem)
             {
-                // add to empty passive ability slot or try to replace a passive ability in the slot
+                if (_equippedPassiveAbilityItems[slot] == null)
+                {
+                    _equippedPassiveAbilityItems[slot] = passiveAbilityItem;
+                    return;
+                }
+
+                DropItem(passiveAbilityItem);
+                _equippedPassiveAbilityItems[slot] = passiveAbilityItem;
             }
-            
+
             var hyperAbilityItem = item as HyperAblilityItem;
-            if (hyperAbilityItem.abilityItemType == AbilityItem.AbilityItemType.HyperAbilityItem)
+            if (hyperAbilityItem.AbilityItemType2 == AbilityItem.AbilityItemType2.HyperAbilityItem)
             {
                 // add to empty hyper ability slot or try to replace a hyper ability in the slot
-                if (_hyperAblilityItem.Equals(null))
+                if (_hyperAblilityItem == null)
                 {
                     _hyperAblilityItem = hyperAbilityItem;
+                    
                 }
                 else
                 {
@@ -67,8 +90,7 @@ public class Inventory
     }
 
 
-
-    public bool RemoveItem(Item item)
+    public bool DropItem(Item item)
     {
         return false;
     }
@@ -91,7 +113,9 @@ public class Inventory
         OnMoneyChange(coins);
         return true;
     }
-    public int GetCoins()  {
+
+    public int GetCoins()
+    {
         return startingCoins;
     }
 }

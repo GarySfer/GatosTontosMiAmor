@@ -12,7 +12,7 @@ namespace DefaultNamespace.ItemClasses
         // private int _attackDamage;
         // private int _health;
 
-        public enum ItemType
+        public enum ItemType2
         {
             AbilityItem,
             WeaponItem,

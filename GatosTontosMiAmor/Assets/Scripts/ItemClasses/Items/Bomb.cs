@@ -11,7 +11,7 @@ namespace DefaultNamespace
         }
 
         // this is an example item
-        public override void activateItem()
+        public void activateItem()
         {
             throw new System.NotImplementedException();
         }

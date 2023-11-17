@@ -5,7 +5,7 @@ namespace DefaultNamespace.ItemClasses
         private int _damage;
         private int _attackSpeed;
         private int _comboCount;
-        public ItemType itemType;
+        public ItemType2 ItemType2;
         private WeaponType _weaponType;
         public enum WeaponType
         {
@@ -19,7 +19,7 @@ namespace DefaultNamespace.ItemClasses
             _damage = damage;
             _attackSpeed = attackSpeed;
             _comboCount = comboCount;
-            itemType = ItemType.WeaponItem;
+            ItemType2 = ItemType2.WeaponItem;
             _weaponType = weaponType;
         }
     }
