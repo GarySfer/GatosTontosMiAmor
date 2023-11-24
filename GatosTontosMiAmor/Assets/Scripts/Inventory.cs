@@ -27,11 +27,11 @@ public class Inventory
         Debug.Log("Inventory");
     }
 
-    public void AddItem(Item item, int slot)
+    public void AddItem(DefaultNamespace.ItemClasses.Item item, int slot)
     {
         // dont look at this, this was made with too much background noise in class
         var weaponItem = item as WeaponItem;
-        if (weaponItem != null && weaponItem.ItemType2 == Item.ItemType2.WeaponItem)
+        if (weaponItem != null && weaponItem.ItemType2 == DefaultNamespace.ItemClasses.Item.ItemType2.WeaponItem)
         {
             if (_equippedWeaponItems[slot] == null)
             {
@@ -44,7 +44,7 @@ public class Inventory
         }
 
         var abilityItem = item as AbilityItem;
-        if (abilityItem != null && abilityItem.ItemType2 == Item.ItemType2.AbilityItem)
+        if (abilityItem != null && abilityItem.ItemType2 == DefaultNamespace.ItemClasses.Item.ItemType2.AbilityItem)
         {
             var activeAbilityItem = item as ActiveAbilityItem;
             if (activeAbilityItem.abilityItemType2 == AbilityItem.AbilityItemType2.ActiveAbilityItem)
@@ -90,7 +90,7 @@ public class Inventory
     }
 
 
-    public bool DropItem(Item item)
+    public bool DropItem(DefaultNamespace.ItemClasses.Item item)
     {
         return false;
     }
