@@ -10,6 +10,7 @@ public class Money : MonoBehaviour
 
     void OnEnable()
     {
+        
         inventoryGet.OnMoneyChange += refreshMoney;
     }
 
