@@ -3,14 +3,6 @@ using UnityEngine;
 
 namespace Item
 {
-    public enum ItemType
-    {
-        Weapon,
-        ActiveAbility,
-        PassiveAbility,
-        HyperAbility
-    }
-    
     public class ItemModel : Model
     {
         public Sprite sprite;

@@ -9,7 +9,9 @@ namespace Item
             {
                 return new WeaponItemModel(weaponTemplateItem, 10);
             }
-
+            // the same for other types of items
+            
+            
             return null;
         }
     }

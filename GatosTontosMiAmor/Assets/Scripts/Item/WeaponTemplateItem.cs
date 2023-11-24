@@ -1,13 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using DefaultNamespace.ItemClasses;
-using Item;
 using UnityEngine;
 
-
-
-public class WeaponTemplateItem : TemplateItem
+namespace Item
 {
-    public Sprite Sprite;
-    public ItemType ItemType = ItemType.Weapon;
+    public class WeaponTemplateItem : TemplateItem
+    {
+        [field: SerializeField] public WeaponType weaponType { get; private set; }
+    }
 }
