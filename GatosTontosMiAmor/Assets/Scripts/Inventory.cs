@@ -1,72 +1,74 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
+using DefaultNamespace.ItemClasses;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory
 {
-    private List<Item> itemList;
-
     // TODO add max health potions to the upgrade shop and then update how many health potions the player can have
     private int maxHealthPotions = 4;
-    private int coins = 0;
+    private int coins = 10;
 
+    private List<WeaponItem> _equippedWeaponItems = new(2);
+    private HyperAblilityItem _hyperAblilityItem;
+    private List<ActiveAbilityItem> _equippedActiveAbilityItems = new(2);
+    private List<PassiveAbilityItem> _equippedPassiveAbilityItems = new(2);
 
-    public int startingCoins {get; private set;} = 4;
-    public event Action<int> OnMoneyChange = delegate {  }; 
-    
-
-    void Start() {
-        AddCoins(startingCoins);
-    }
+    public event Action<int> OnMoneyChange = delegate { };
 
     public Inventory()
     {
-        itemList = new List<Item>();
-
-
-        // starter items example
-        AddItem(new Item { itemType = Item.ItemType.SmallSword, amount = 1 });
-        AddItem(new Item { itemType = Item.ItemType.SmallShield, amount = 1 });
-        AddItem(new Item { itemType = Item.ItemType.HealthPotion, amount = 2 });
-
-
+        Debug.Log(_equippedWeaponItems);
         Debug.Log("Inventory");
-        Debug.Log(itemList.Count);
     }
 
-    public void AddItem(Item item)
+    public void AddItem(Item item, int slot)
     {
-        // if player has more than x health potions cancel adding more potions
-        if (item.itemType == Item.ItemType.HealthPotion)
+        // dont look at this, this was made with too much background noise in class
+        var weaponItem = item as WeaponItem;
+        if (weaponItem != null && weaponItem.itemType == Item.ItemType.WeaponItem)
         {
-            // if player has more than maxHealthPotions cancel adding more potions
-            if (itemList.FindAll(x => x.itemType == Item.ItemType.HealthPotion).Count >= maxHealthPotions)
+            // add to empty weapon slot or try to replace a weapon in the slot
+        }
+        
+        var abilityItem = item as AbilityItem;
+        if (abilityItem != null && abilityItem.itemType == Item.ItemType.AbilityItem)
+        {
+            var activeAbilityItem = item as ActiveAbilityItem;
+            if (activeAbilityItem.abilityItemType == AbilityItem.AbilityItemType.ActiveAbilityItem)
             {
-                return;
+                // add to empty active ability slot or try to replace an active ability in the slot
+            }
+            
+            var passiveAbilityItem = item as PassiveAbilityItem;
+            if (passiveAbilityItem.abilityItemType == AbilityItem.AbilityItemType.PassiveAbilityItem)
+            {
+                // add to empty passive ability slot or try to replace a passive ability in the slot
+            }
+            
+            var hyperAbilityItem = item as HyperAblilityItem;
+            if (hyperAbilityItem.abilityItemType == AbilityItem.AbilityItemType.HyperAbilityItem)
+            {
+                // add to empty hyper ability slot or try to replace a hyper ability in the slot
+                if (_hyperAblilityItem.Equals(null))
+                {
+                    _hyperAblilityItem = hyperAbilityItem;
+                }
+                else
+                {
+                    // replace hyper ability
+                }
             }
         }
-
-        // if item already exists in inventory add to amount
-        if (itemList.Exists(x => x.itemType == item.itemType))
-        {
-            itemList.Find(x => x.itemType == item.itemType).amount += item.amount;
-        }
-        else
-        {
-            itemList.Add(item);
-        }        
     }
+
+
 
     public bool RemoveItem(Item item)
     {
-        if (itemList.Contains(item))
-        {
-            itemList.Remove(item);
-            return true;
-        }
-        Debug.Log("Item not found");
         return false;
     }
 
@@ -75,7 +77,7 @@ public class Inventory : MonoBehaviour
         coins += newCoins;
         OnMoneyChange(coins);
     }
-    
+
     public bool RemoveCoins(int newCoins)
     {
         if (coins - newCoins < 0)
@@ -83,9 +85,12 @@ public class Inventory : MonoBehaviour
             Debug.Log("Not enough coins");
             return false;
         }
+
         coins -= newCoins;
         OnMoneyChange(coins);
         return true;
-
+    }
+    public int GetCoins()  {
+        return coins;
     }
 }

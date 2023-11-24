@@ -5,8 +5,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int Health;
     public Inventory inventory { get; private set; }
+    
+    // stats
+    private int _moveSpeed;
+    private int _attackSpeed;
+    private int _attackDamage;
+    private int _health;
     
 
     private void Awake()
@@ -17,12 +22,12 @@ public class Player : MonoBehaviour
 
     public void AddHealth(int newHealth)
     {
-        Health += newHealth;
+        _health += newHealth;
     }
     
     public void RemoveHealth(int newHealth)
     {
-        Health -= newHealth;
+        _health -= newHealth;
     }
     
 }
