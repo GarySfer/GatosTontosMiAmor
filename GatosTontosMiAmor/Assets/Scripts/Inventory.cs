@@ -35,17 +35,16 @@ public class Inventory
     {
         if (itemModel is WeaponItemModel weaponItemModel)
         {
-            
-            _equippedWeaponItems[slot] = weaponItemModel;
-            ItemModel replacedItem = replaceItem(slot, weaponItemModel);
+            ItemModel replacedItem = ReplaceItem(slot, weaponItemModel);
             DropItem(replacedItem);
+            // _equippedWeaponItems[slot] = weaponItemModel;
         }
         
         
         // TODO add item to inventory
     }
 
-    private ItemModel replaceItem(int slot, ItemModel itemModel)
+    private ItemModel ReplaceItem(int slot, ItemModel itemModel)
     {
         if (itemModel is WeaponItemModel weaponItemModel)
         {
@@ -54,7 +53,7 @@ public class Inventory
             return oldItem;
         }
         
-        return new ItemModel(null);
+        return null;
     }
     
     
