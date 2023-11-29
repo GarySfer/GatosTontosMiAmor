@@ -7,18 +7,17 @@ namespace Item
     public class ItemManager : MonoBehaviour
     {
         // singleton
-        private static ItemManager _instance;
-        public static ItemManager Instance => _instance;
-
+        public static ItemManager Instance { get; private set; }
+        
         private void Awake()
         {
-            if (_instance != null)
+            if (Instance != null)
             {
                 Destroy(gameObject);
             }
             else
             {
-                _instance = this;
+                Instance = this;
             }
         }
 

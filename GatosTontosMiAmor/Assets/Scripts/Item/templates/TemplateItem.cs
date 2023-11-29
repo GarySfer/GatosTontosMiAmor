@@ -6,5 +6,6 @@ namespace Item.templates
     {
         public string name;
         public Sprite sprite;
+        
     }
 }

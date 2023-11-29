@@ -15,5 +15,9 @@ namespace Item.Models
             sprite = baseModel.sprite;
             name = baseModel.name;
         }
+        public void PickupItem()
+        {
+            Debug.Log(name + " wants to be picked up!");
+        }
     }
 }
