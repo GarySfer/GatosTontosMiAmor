@@ -1,7 +1,7 @@
-using System.IO;
+using Item.templates;
 using UnityEngine;
 
-namespace Item
+namespace Item.Models
 {
     public class ItemModel : Model
     {

@@ -1,4 +1,4 @@
-namespace Item
+namespace Item.Models
 {
     public class Model
     {

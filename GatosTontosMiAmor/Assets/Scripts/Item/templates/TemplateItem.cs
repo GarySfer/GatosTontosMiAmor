@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Item
+namespace Item.templates
 {
     public class TemplateItem : TemplateModel
     {

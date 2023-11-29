@@ -1,7 +1,6 @@
-using Unity.VisualScripting;
-using UnityEngine;
+using Item.templates;
 
-namespace Item
+namespace Item.Models
 {
     public class WeaponItemModel : ItemModel
     {
