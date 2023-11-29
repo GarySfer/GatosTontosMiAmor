@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 
 public class ButtonMoney : MonoBehaviour
@@ -13,7 +14,7 @@ public class ButtonMoney : MonoBehaviour
     {
         
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -21,5 +22,8 @@ public class ButtonMoney : MonoBehaviour
     }
     public void MoneyOnClick() {
         inventoryGet.AddCoins(4);
+    }
+    public void GemsOnClick() {
+        inventoryGet.AddGems(3);
     }
 }

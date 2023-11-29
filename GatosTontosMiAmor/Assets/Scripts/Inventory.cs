@@ -10,7 +10,8 @@ public class Inventory
 {
     // TODO add max health potions to the upgrade shop and then update how many health potions the player can have
     private int maxHealthPotions = 4;
-    private int coins = 10;
+    private int coins = 0;
+    private float gems = 0;
 
     private List<WeaponItem> _equippedWeaponItems = new(2);
     private HyperAblilityItem _hyperAblilityItem;
@@ -18,6 +19,7 @@ public class Inventory
     private List<PassiveAbilityItem> _equippedPassiveAbilityItems = new(2);
 
     public event Action<int> OnMoneyChange = delegate { };
+    public event Action<float> OnGemsChange = delegate { };
 
     public Inventory()
     {
@@ -92,5 +94,27 @@ public class Inventory
     }
     public int GetCoins()  {
         return coins;
+    }
+
+        public void AddGems(float newGems)
+    {
+        gems += (newGems * 0.9F);
+        OnGemsChange(gems);
+    }
+
+    public bool RemoveGems(float newGems)
+    {
+        if ((gems - (newGems * 1.1F)) < 0)
+        {
+            Debug.Log("Not enough gems");
+            return false;
+        }
+
+        gems -= (newGems * 1.1F);
+        OnGemsChange(gems);
+        return true;
+    }
+    public float GetGems()  {
+        return gems;
     }
 }
