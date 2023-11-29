@@ -38,7 +38,7 @@ public class Inventory
             
             _equippedWeaponItems[slot] = weaponItemModel;
             ItemModel replacedItem = replaceItem(slot, weaponItemModel);
-            DropItem(itemModel);
+            DropItem(replacedItem);
         }
         
         
