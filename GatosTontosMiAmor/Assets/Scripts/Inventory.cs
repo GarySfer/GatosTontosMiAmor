@@ -37,11 +37,7 @@ public class Inventory
         {
             ItemModel replacedItem = ReplaceItem(slot, weaponItemModel);
             DropItem(replacedItem);
-            // _equippedWeaponItems[slot] = weaponItemModel;
         }
-        
-        
-        // TODO add item to inventory
     }
 
     private ItemModel ReplaceItem(int slot, ItemModel itemModel)
@@ -60,7 +56,6 @@ public class Inventory
 
     public void DropItem(ItemModel itemModel)
     {
-        // TODO drop/salvage item from inventory
         _itemManager.createItemInWorld(itemModel, GameManager.Instance.player.transform);
     }
 
