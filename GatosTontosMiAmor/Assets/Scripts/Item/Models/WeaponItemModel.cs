@@ -5,11 +5,11 @@ namespace Item.Models
     public class WeaponItemModel : ItemModel
     {
         public int weaponDamage;
-        public WeaponType weaponType { get; private set; }
+        public ItemType itemType { get; private set; }
 
         public WeaponItemModel(WeaponTemplateItem baseModel, int weaponDamage) : base(baseModel)
         {
-            weaponType = baseModel.weaponType;
+            itemType = baseModel.itemType;
             this.weaponDamage = weaponDamage;
         }
     }

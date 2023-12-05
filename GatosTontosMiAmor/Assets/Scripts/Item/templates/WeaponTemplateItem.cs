@@ -4,6 +4,6 @@ namespace Item.templates
 {
     public class WeaponTemplateItem : TemplateItem
     {
-        [field: SerializeField] public WeaponType weaponType { get; private set; }
+        [field: SerializeField] public ItemType itemType { get; private set; }
     }
 }

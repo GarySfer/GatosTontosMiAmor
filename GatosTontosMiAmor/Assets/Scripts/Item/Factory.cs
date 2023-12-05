@@ -7,9 +7,13 @@ namespace Item
     {
         public static ItemModel Create(TemplateItem templateItem)
         {
-            WeaponTemplateItem weaponTemplateItem = templateItem as WeaponTemplateItem;
-            if (weaponTemplateItem != null)
+            if (templateItem is WeaponTemplateItem weaponTemplateItem)
             {
+                if (templateItem is SwordTemplate swordTemplate)
+                {
+                    return new SwordModel(swordTemplate, 10);
+                }
+                
                 return new WeaponItemModel(weaponTemplateItem, 10);
             }
             // the same for other types of items

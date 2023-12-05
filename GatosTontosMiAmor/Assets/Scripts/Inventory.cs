@@ -14,8 +14,8 @@ public class Inventory
     private int maxHealthPotions = 4;
     private int coins = 0;
     private int startingCoins = 0;
-    
-    private ItemManager _itemManager = ItemManager.Instance; 
+
+    private ItemManager _itemManager = ItemManager.Instance;
 
     private List<WeaponItemModel> _equippedWeaponItems = new(2);
     // private HyperAblilityItem _hyperAblilityItem;
@@ -27,17 +27,37 @@ public class Inventory
 
     public Inventory()
     {
-        // Debug.Log(_equippedWeaponItems);
+        Debug.Log(_equippedWeaponItems);
         Debug.Log("Inventory");
+        
+        _equippedWeaponItems.Add(null);
+        _equippedWeaponItems.Add(null);
     }
 
-    public void AddItem(ItemModel itemModel,int slot)
+    public void AddItem(ItemModel itemModel, int slot)
     {
+        // todo adding an item to inventory throws an index out of range exception for slot
         if (itemModel is WeaponItemModel weaponItemModel)
         {
+            if (slot < 0 || slot >= _equippedWeaponItems.Capacity)
+            {
+                Debug.Log("Invalid slot");
+                return;
+            }
+
+            Debug.Log(_equippedWeaponItems.Count);
+            
+            if (_equippedWeaponItems[slot] == null)
+            {
+                _equippedWeaponItems[slot] = weaponItemModel;
+                Debug.Log("weaponItems amount: "+_equippedWeaponItems[slot]);
+                return;
+            }
+
             ItemModel replacedItem = ReplaceItem(slot, weaponItemModel);
             DropItem(replacedItem);
         }
+
     }
 
     private ItemModel ReplaceItem(int slot, ItemModel itemModel)
@@ -48,11 +68,10 @@ public class Inventory
             _equippedWeaponItems[slot] = weaponItemModel;
             return oldItem;
         }
-        
+
         return null;
     }
-    
-    
+
 
     public void DropItem(ItemModel itemModel)
     {
