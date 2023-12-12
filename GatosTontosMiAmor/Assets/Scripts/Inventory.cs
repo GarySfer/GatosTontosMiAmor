@@ -10,7 +10,6 @@ using Random = System.Random;
 
 public class Inventory
 {
-    // TODO add max health potions to the upgrade shop and then update how many health potions the player can have
     private int maxHealthPotions = 4;
     private int coins = 0;
     private int startingCoins = 0;
@@ -36,7 +35,7 @@ public class Inventory
 
     public void AddItem(ItemModel itemModel, int slot)
     {
-        // todo adding an item to inventory throws an index out of range exception for slot
+        // todo adding an item to inventory throws an index out of range exception for slot - not anymore i dont think
         if (itemModel is WeaponItemModel weaponItemModel)
         {
             if (slot < 0 || slot >= _equippedWeaponItems.Capacity)

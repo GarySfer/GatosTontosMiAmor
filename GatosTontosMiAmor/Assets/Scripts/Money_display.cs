@@ -6,7 +6,13 @@ using TMPro;
 
 public class Money : MonoBehaviour
 {
-    private Inventory inventoryGet => GameManager.Instance.inventory;
+    private Inventory inventoryGet => GameManager.Instance.Inventory;
+    public TMP_Text moneyBankAccount;
+
+    void Start()
+    {
+        refreshMoney(inventoryGet.GetCoins());
+    }
 
     void OnEnable()
     {
@@ -16,17 +22,6 @@ public class Money : MonoBehaviour
     void OnDisable()
     {
         inventoryGet.OnMoneyChange -= refreshMoney;
-    }
-
-    public TMP_Text moneyBankAccount;
-
-    void Start()
-    {
-        refreshMoney(inventoryGet.GetCoins());
-    }
-
-    void Update()
-    {
     }
 
     public void refreshMoney(int refreshMoney)

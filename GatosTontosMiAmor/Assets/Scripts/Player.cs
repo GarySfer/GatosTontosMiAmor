@@ -19,16 +19,4 @@ public class Player : MonoBehaviour
         GameManager.Instance.player = this;
         inventory = new Inventory();
     }
-
-    public void AddHealth(int newHealth)
-    {
-        _health += newHealth;
-    }
-    
-    public void RemoveHealth(int newHealth)
-    {
-        _health -= newHealth;
-    }
-    
-    
 }

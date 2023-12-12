@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonMoney : MonoBehaviour
 {
-    private Inventory inventoryGet => GameManager.Instance.inventory;
+    private Inventory inventoryGet => GameManager.Instance.Inventory;
 
     // Start is called before the first frame update
     void Start()
