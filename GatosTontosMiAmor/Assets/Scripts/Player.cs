@@ -29,6 +29,11 @@ public class Player : MonoBehaviour
         {
             UseHealthPotion();
         }
+
+        if (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Attack();
+        }
     }
 
     private void UseHealthPotion()
@@ -50,5 +55,12 @@ public class Player : MonoBehaviour
             cooldown -= 0.5f;
             yield return new WaitForSeconds(0.5f);
         }
+    }
+
+    private void Attack()
+    {
+        Debug.Log("Player wants to attack");
+        // TODO: attack
+        
     }
 }

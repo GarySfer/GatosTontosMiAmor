@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4888886370936883596}
   m_Layer: 0
   m_Name: EnemyShooter
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,6 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   maxHealth: 5
+  animator: {fileID: 0}
 --- !u!1 &3607828828425048161
 GameObject:
   m_ObjectHideFlags: 0
