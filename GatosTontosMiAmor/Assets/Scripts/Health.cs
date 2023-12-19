@@ -51,7 +51,6 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log(name + " died");
         StartCoroutine(DeathAnimation());
     }
     
@@ -62,7 +61,7 @@ public class Health : MonoBehaviour
             animator.SetBool(IsDead, true);
         }
         _isDead = true;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
 }
