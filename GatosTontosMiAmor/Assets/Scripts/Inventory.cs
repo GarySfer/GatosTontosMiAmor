@@ -10,8 +10,10 @@ using Random = System.Random;
 
 public class Inventory
 {
-    private int maxHealthPotions = 4;
-    private int coins = 0;
+    public float healthPotionCooldownSeconds = 4;
+    public float currentHealthPotionCooldownSeconds;
+    public int healthPotionHealAmount = 50;
+    private int coins;
     private int startingCoins = 0;
 
     private ItemManager _itemManager = ItemManager.Instance;
@@ -100,4 +102,14 @@ public class Inventory
     {
         return startingCoins;
     }
+    
+    public void UseHealthPotion()
+    {
+        if (currentHealthPotionCooldownSeconds <= 0)
+        {
+            currentHealthPotionCooldownSeconds = healthPotionCooldownSeconds;
+            GameManager.Instance.player.GetComponent<Health>().Heal(healthPotionHealAmount);
+        }
+    }
+    
 }
