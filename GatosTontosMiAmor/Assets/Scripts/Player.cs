@@ -33,13 +33,7 @@ public class Player : MonoBehaviour
 
     private void UseHealthPotion()
     {
-        // check if cooldown is not 0, return
-        if (inventory.currentHealthPotionCooldownSeconds > 0)
-        {
-            Debug.Log("Health potion is on cooldown");
-            return;
-        }
-
+        if (inventory.currentHealthPotionCooldownSeconds > 0) return;
         inventory.UseHealthPotion();
         StartCoroutine(HealthPotionCooldown());
     }
@@ -47,11 +41,10 @@ public class Player : MonoBehaviour
     private IEnumerator HealthPotionCooldown()
     {
         float cooldown = inventory.healthPotionCooldownSeconds;
-        float timeOfBussin = 0.5f;
-
+        float decreceTimeBy = 0.5f;
         while (cooldown > 0)
         {
-            inventory.currentHealthPotionCooldownSeconds -= timeOfBussin;
+            inventory.currentHealthPotionCooldownSeconds -= decreceTimeBy;
             potionCooldownSprite.fillAmount =
                 inventory.currentHealthPotionCooldownSeconds / inventory.healthPotionCooldownSeconds;
             cooldown -= 0.5f;
