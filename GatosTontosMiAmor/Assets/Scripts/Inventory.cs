@@ -1,77 +1,84 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using DefaultNamespace;
-using DefaultNamespace.ItemClasses;
+using Item;
+using Item.Models;
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = System.Random;
 
 public class Inventory
 {
-    // TODO add max health potions to the upgrade shop and then update how many health potions the player can have
-    private int maxHealthPotions = 4;
-    private int coins = 0;
+    public float healthPotionCooldownSeconds = 4;
+    public float currentHealthPotionCooldownSeconds;
+    public int healthPotionHealAmount = 50;
+    private int coins;
+    private int startingCoins = 0;
     private float gems = 0;
 
-    private List<WeaponItem> _equippedWeaponItems = new(2);
-    private HyperAblilityItem _hyperAblilityItem;
-    private List<ActiveAbilityItem> _equippedActiveAbilityItems = new(2);
-    private List<PassiveAbilityItem> _equippedPassiveAbilityItems = new(2);
+    private ItemManager _itemManager = ItemManager.Instance;
+
+    private List<WeaponItemModel> _equippedWeaponItems = new(2);
+    // private HyperAblilityItem _hyperAblilityItem;
+    // private List<ActiveAbilityItem> _equippedActiveAbilityItems = new(2);
+    // private List<PassiveAbilityItem> _equippedPassiveAbilityItems = new(2);
 
     public event Action<int> OnMoneyChange = delegate { };
     public event Action<float> OnGemsChange = delegate { };
+
 
     public Inventory()
     {
         Debug.Log(_equippedWeaponItems);
         Debug.Log("Inventory");
-    }
-
-    public void AddItem(Item item, int slot)
-    {
-        // dont look at this, this was made with too much background noise in class
-        var weaponItem = item as WeaponItem;
-        if (weaponItem != null && weaponItem.itemType == Item.ItemType.WeaponItem)
-        {
-            // add to empty weapon slot or try to replace a weapon in the slot
-        }
         
-        var abilityItem = item as AbilityItem;
-        if (abilityItem != null && abilityItem.itemType == Item.ItemType.AbilityItem)
+        _equippedWeaponItems.Add(null);
+        _equippedWeaponItems.Add(null);
+    }
+
+    public void AddItem(ItemModel itemModel, int slot)
+    {
+        // todo adding an item to inventory throws an index out of range exception for slot - not anymore i dont think
+        if (itemModel is WeaponItemModel weaponItemModel)
         {
-            var activeAbilityItem = item as ActiveAbilityItem;
-            if (activeAbilityItem.abilityItemType == AbilityItem.AbilityItemType.ActiveAbilityItem)
+            if (slot < 0 || slot >= _equippedWeaponItems.Capacity)
             {
-                // add to empty active ability slot or try to replace an active ability in the slot
+                Debug.Log("Invalid slot");
+                return;
             }
+
+            Debug.Log(_equippedWeaponItems.Count);
             
-            var passiveAbilityItem = item as PassiveAbilityItem;
-            if (passiveAbilityItem.abilityItemType == AbilityItem.AbilityItemType.PassiveAbilityItem)
+            if (_equippedWeaponItems[slot] == null)
             {
-                // add to empty passive ability slot or try to replace a passive ability in the slot
+                _equippedWeaponItems[slot] = weaponItemModel;
+                Debug.Log("weaponItems amount: "+_equippedWeaponItems[slot]);
+                return;
             }
-            
-            var hyperAbilityItem = item as HyperAblilityItem;
-            if (hyperAbilityItem.abilityItemType == AbilityItem.AbilityItemType.HyperAbilityItem)
-            {
-                // add to empty hyper ability slot or try to replace a hyper ability in the slot
-                if (_hyperAblilityItem.Equals(null))
-                {
-                    _hyperAblilityItem = hyperAbilityItem;
-                }
-                else
-                {
-                    // replace hyper ability
-                }
-            }
+
+            ItemModel replacedItem = ReplaceItem(slot, weaponItemModel);
+            DropItem(replacedItem);
         }
+
+    }
+
+    private ItemModel ReplaceItem(int slot, ItemModel itemModel)
+    {
+        if (itemModel is WeaponItemModel weaponItemModel)
+        {
+            ItemModel oldItem = _equippedWeaponItems[slot];
+            _equippedWeaponItems[slot] = weaponItemModel;
+            return oldItem;
+        }
+
+        return null;
     }
 
 
-
-    public bool RemoveItem(Item item)
+    public void DropItem(ItemModel itemModel)
     {
-        return false;
+        _itemManager.createItemInWorld(itemModel, GameManager.Instance.player.transform);
     }
 
     public void AddCoins(int newCoins)
@@ -117,4 +124,14 @@ public class Inventory
     public float GetGems()  {
         return gems;
     }
+    
+    public void UseHealthPotion()
+    {
+        if (currentHealthPotionCooldownSeconds <= 0)
+        {
+            currentHealthPotionCooldownSeconds = healthPotionCooldownSeconds;
+            GameManager.Instance.player.GetComponent<Health>().Heal(healthPotionHealAmount);
+        }
+    }
+    
 }
