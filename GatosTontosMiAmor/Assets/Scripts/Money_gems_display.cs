@@ -6,7 +6,7 @@ using TMPro;
 
 public class Money : MonoBehaviour
 {
-    private Inventory inventoryGet => GameManager.Instance.inventory;
+    private Inventory inventoryGet => GameManager.Instance.Inventory;
 
     void OnEnable()
     {

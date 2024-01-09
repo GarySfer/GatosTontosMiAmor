@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Money : MonoBehaviour
+public class Money2 : MonoBehaviour
 {
     private Inventory inventoryGet => GameManager.Instance.Inventory;
     public TMP_Text moneyBankAccount;
