@@ -256,6 +256,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: flatten_character
       objectReference: {fileID: 0}
+    - target: {fileID: 1160356261127867848, guid: 2030d62616530d54181c6af333cdc592, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4e18fb0cfc2a3584e9ab738c2ab0f550, type: 2}
     - target: {fileID: 7878350319992209165, guid: 2030d62616530d54181c6af333cdc592, type: 3}
       propertyPath: m_LocalScale.x
       value: 7.6
