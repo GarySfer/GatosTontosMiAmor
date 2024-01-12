@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     {
         GameManager.Instance.player = this;
         inventory = new Inventory();
+        potionCooldownSprite.fillAmount = 0;
     }
 
     private void Update()

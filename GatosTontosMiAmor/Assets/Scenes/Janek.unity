@@ -2870,14 +2870,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 3853374028770658855, guid: 2571c04096dd68134a632d77f764509d, type: 3}
-      propertyPath: m_Size.y
-      value: 0.8884614
-      objectReference: {fileID: 0}
-    - target: {fileID: 3853374028770658855, guid: 2571c04096dd68134a632d77f764509d, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.041189402
-      objectReference: {fileID: 0}
     - target: {fileID: 6149582805776529255, guid: 2571c04096dd68134a632d77f764509d, type: 3}
       propertyPath: potionCooldownSprite
       value: 
@@ -3006,6 +2998,10 @@ PrefabInstance:
     - target: {fileID: 3411600252491807840, guid: e2ca40b19d32777548a1828aafea3ea3, type: 3}
       propertyPath: parallaxEffect
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041890619845810142, guid: e2ca40b19d32777548a1828aafea3ea3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4080307294115164375, guid: e2ca40b19d32777548a1828aafea3ea3, type: 3}
       propertyPath: m_SortingOrder
@@ -3187,18 +3183,34 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 696770115}
+    - target: {fileID: 2662588035948997993, guid: d2a55d0e9524e2135943b46fdb49607e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3339445598933485484, guid: d2a55d0e9524e2135943b46fdb49607e, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946560597314452598, guid: d2a55d0e9524e2135943b46fdb49607e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4164866877841143209, guid: d2a55d0e9524e2135943b46fdb49607e, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1556031752}
+    - target: {fileID: 6307878297018382150, guid: d2a55d0e9524e2135943b46fdb49607e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -326.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6581857032050420898, guid: d2a55d0e9524e2135943b46fdb49607e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 696770115}
+    - target: {fileID: 8289747495030127653, guid: d2a55d0e9524e2135943b46fdb49607e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

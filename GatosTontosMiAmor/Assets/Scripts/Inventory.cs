@@ -35,6 +35,7 @@ public class Inventory
         
         _equippedWeaponItems.Add(null);
         _equippedWeaponItems.Add(null);
+        
     }
 
     public void AddItem(ItemModel itemModel, int slot)
